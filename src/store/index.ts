@@ -1,5 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { compose, applyMiddleware, createStore } from '@reduxjs/toolkit'
+import thunkMiddleware from 'redux-thunk'
+import rootReducer from './reducers/index'
 
-export default configureStore({
-  reducer: {}
-})
+const middlewares = [
+  thunkMiddleware
+]
+
+const enhancer = compose(
+  applyMiddleware(...middlewares),
+  // other store enhancers if any
+)
+const store: any = createStore(rootReducer, enhancer)
+export default store

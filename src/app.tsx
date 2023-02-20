@@ -1,24 +1,24 @@
 import { Component, PropsWithChildren } from 'react'
-import store from './store'
-import { Provider } from '@tarojs/redux'
+import { Provider } from 'react-redux'
+import store from './store/index'
 import './app.scss'
-import { View } from 'react-native'
 
 class App extends Component<PropsWithChildren> {
-
   componentDidMount() { }
 
   componentDidShow() { }
 
   componentDidHide() { }
 
-  // this.props.children 是将要会渲染的页面
+  // 在 App 类中的 render() 函数没有实际作用
+  // 请勿修改此函数
   render() {
     return (
-      <View>
-      { this.props.children }
-      < /View>
-    )
+      <Provider store={store} >
+        {this.props.children}
+      </Provider>
+    );
   }
 }
+
 export default App
