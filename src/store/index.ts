@@ -1,15 +1,6 @@
-import { compose, applyMiddleware, createStore, configureStore } from '@reduxjs/toolkit'
-import thunkMiddleware from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './reducers/counter'
 
-const middlewares = [
-  thunkMiddleware
-]
-
-const enhancer = compose(
-  applyMiddleware(...middlewares),
-  // other store enhancers if any
-)
 const store = configureStore({
   reducer: {
     counter: counterReducer
