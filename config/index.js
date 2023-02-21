@@ -1,3 +1,4 @@
+const path = require('path');
 const config = {
   projectName: 'my-taro',
   date: '2023-2-20',
@@ -18,6 +19,9 @@ const config = {
   copy: {
     patterns: [],
     options: {},
+  },
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src/'),
   },
   framework: 'react',
   compiler: 'webpack5',
