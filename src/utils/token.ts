@@ -1,9 +1,10 @@
 import storage from './storage'
 
-function getToken() {
-  const token = storage.get('token')
+async function getToken() {
+  const token = await storage.get('token')
   if (token) {
-    const expireTime = storage.get('expireTime') - 100
+    let expireTime: any = await storage.get('expireTime')
+    expireTime -= 100
     const nowTime = Math.floor(new Date().getTime() / 1000)
     if (nowTime > expireTime) {
       removeToken()

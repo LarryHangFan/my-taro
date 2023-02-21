@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   const [test, setTest] = useState<string>('')
   const getData = async () => {
     const res = await getTestData()
-    console.log(222, res.)
+    console.log(222, res)
   }
   return <View className='index'>
     <Text>{count}</Text>

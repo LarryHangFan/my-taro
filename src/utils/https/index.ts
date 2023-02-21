@@ -37,7 +37,8 @@ http.interceptors.request.use(
     config.data = config.data;
     config.url = `${config.baseURL}/` + config.api;
     // 设置请求头token
-    let token = getToken();
+    let token: any = await getToken();
+    console.log(33, token)
     if (token?.jwtConfig) {
       const header = token?.jwtConfig?.headerKey;
       const tk = token?.jwtConfig?.headerPrefix + " " + token?.tokenData?.token;
